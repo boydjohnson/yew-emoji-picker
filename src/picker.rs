@@ -1,6 +1,16 @@
 use emojis::{Emoji, Group};
 use yew::prelude::*;
 
+const SMILIES: &str = "😀";
+const FLAGS: &str = "🏁";
+const ACTIVITIES: &str = "🎃";
+const ANIMALS: &str = "🐵";
+const FOOD: &str = "🍇";
+const OBJECTS: &str = "👓";
+const PEOPLE: &str = "👋";
+const TRAVEL: &str = "🌍";
+const SYMBOLS: &str = "🏧";
+
 #[derive(Debug, Clone, PartialEq, Properties)]
 pub struct EmojiPickerProps {
     pub emoji_callback: Callback<Emoji>,
@@ -52,7 +62,7 @@ impl Component for EmojiPicker {
             EmojiMsg::Group(group) => {
                 self.selected_group = group;
                 true
-            },
+            }
             EmojiMsg::Emoji(emoji) => {
                 self.props.emoji_callback.emit(emoji);
                 false
@@ -61,48 +71,38 @@ impl Component for EmojiPicker {
     }
 
     fn view(&self) -> Html {
-        let smilies = emojis::Group::SmileysAndEmotion.emojis().next().unwrap();
-
         let smilies_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::SmileysAndEmotion));
 
-        let flags = emojis::Group::Flags.emojis().next().unwrap();
         let flags_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::Flags));
 
-        let activities = emojis::Group::Activities.emojis().next().unwrap();
         let activities_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::Activities));
 
-        let animals = emojis::Group::AnimalsAndNature.emojis().next().unwrap();
         let animals_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::AnimalsAndNature));
 
-        let food = emojis::Group::FoodAndDrink.emojis().next().unwrap();
         let food_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::FoodAndDrink));
 
-        let objects = emojis::Group::Objects.emojis().next().unwrap();
         let objects_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::Objects));
 
-        let people = emojis::Group::PeopleAndBody.emojis().next().unwrap();
         let people_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::PeopleAndBody));
 
-        let travel = emojis::Group::TravelAndPlaces.emojis().next().unwrap();
         let travel_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::TravelAndPlaces));
 
-        let symbols = emojis::Group::Symbols.emojis().next().unwrap();
         let symbols_callback = self
             .link
             .callback(|_| EmojiMsg::Group(emojis::Group::Symbols));
@@ -114,15 +114,15 @@ impl Component for EmojiPicker {
         html! {
             <div style="display: flex; flex-wrap: wrap;">
                 <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap;">
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=smilies_callback>{ smilies }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=flags_callback>{ flags }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=activities_callback>{ activities }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=animals_callback>{ animals }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=food_callback>{ food }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=objects_callback>{ objects }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=people_callback>{ people }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=travel_callback>{ travel }</button>
-                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=symbols_callback>{ symbols }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=smilies_callback>{ SMILIES }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=flags_callback>{ FLAGS }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=activities_callback>{ ACTIVITIES }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=animals_callback>{ ANIMALS }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=food_callback>{ FOOD }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=objects_callback>{ OBJECTS }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=people_callback>{ PEOPLE }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=travel_callback>{ TRAVEL }</button>
+                <button style="margin: 1% 2%; flex: 1 1 8%;" class="emoji-header-buttons" onclick=symbols_callback>{ SYMBOLS }</button>
                 </div>
 
 
